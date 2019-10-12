@@ -28,3 +28,8 @@ square x = x*x
 -- this works vice versa with the foldl
 mystery xs = foldl (++) [5,6] (map sing xs) where
     sing x = [x]
+
+-- no. 5: polymorphic identity function
+polymorphicId x = x
+
+-- x can be anything, that's why called polymorphic
