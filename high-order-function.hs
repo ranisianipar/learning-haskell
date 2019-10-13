@@ -46,9 +46,11 @@ greaterThan10 x = if x > 10
 -- compose list of function
 composeMe x y = x . y
 composeList (x:xs) = foldl composeMe x xs
+composeList [] = polymorphicId
 
 -- function will be composed from leftest element, index move to the right (side)
 composeList2 (x:xs) = foldr (\x y -> x . y) x xs
+composeList2 [] = polymorphicId
 
 -- test case: `composeList [succ, polymorphicId, square] 1` --> return 2
 -- test case: `composeList2 [succ, polymorphicId, square] 1` --> return 4
