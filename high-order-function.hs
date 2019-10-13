@@ -54,3 +54,6 @@ composeList2 [] = polymorphicId
 
 -- test case: `composeList [succ, polymorphicId, square] 1` --> return 2
 -- test case: `composeList2 [succ, polymorphicId, square] 1` --> return 4
+
+-- no. 7: flip
+flipMe f a b = f b a
