@@ -64,3 +64,48 @@ flipMe f a b = f b a
 
 -- LIST COMPREHENSION
 
+
+-- no. 1: [ x + 1 | x <- xs ]
+list1 xs = map succ xs
+list1A xs = map (+1) xs
+
+-- no. 2: [ x + y | x <- xs, y <- ys ]
+-- HOW TO IMPLEMENT THIS WITH MAP???
+list2 (x:xs) (y:ys) = (x + y) : list2 xs ys
+list2 [] [] = []
+list2 (x:xs) [] = xs
+list2 [] (y:ys) = ys
+
+-- with helper function
+addThem (i,j) =  i + j
+list2A xs ys = map addThem (zip xs ys)
+
+-- no helper function
+list2B xs ys = map (\(i,j) -> i + j) (zip xs ys)
+
+-- implement zipWith
+list2C f xs ys = map (\(i,j) -> f i j) (zip xs ys)
+
+-- no. 3: [ x + 2 | x <- xs, x > 3 ]
+gt3 x = x > 3 
+list3 xs = map (\a -> a + 2) (filter gt3 xs)
+
+-- no helper function
+list3A xs = map (\a -> a + 2) (
+    filter (\a -> a > 3) xs 
+    )
+
+-- no. 4: [ x + 3 | (x, _) <- xys ]
+list4 xys = map (\(i, _) -> i + 3) xys
+
+-- with helper func.
+firstPlus3 (i, _) = i + 3
+list4A xys = map firstPlus3 xys
+
+
+-- no. 5: [ x+4 | (x,y) <- xys, x+y < 5 ]
+list5 xys = map (\(i,j) -> i + 4) (filter plusGt5 xys)
+
+-- helper func.
+plusGt5 (i,j) = (i + j) < 5
+
