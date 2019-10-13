@@ -1,3 +1,5 @@
+-- Exercises from chapter 9-10 of The Craft of Functional Programming
+
 -- no. 1
 returnOne a = 1
 getLength xs = sum (map returnOne xs)
@@ -57,3 +59,8 @@ composeList2 [] = polymorphicId
 
 -- no. 7: flip
 flipMe f a b = f b a
+
+
+
+-- LIST COMPREHENSION
+
