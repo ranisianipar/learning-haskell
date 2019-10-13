@@ -64,6 +64,7 @@ flipMe f a b = f b a
 
 -- LIST COMPREHENSION
 
+-- LIST COMPRE to HIGH ORDER
 
 -- no. 1: [ x + 1 | x <- xs ]
 list1 xs = map succ xs
@@ -118,3 +119,21 @@ helo x = if (x == Nothing)
     else True
 
 list6 mxs = map (\ (Just a) -> a + 5) (filter helo mxs)
+
+-- HIGH ORDER to LIST COMPRE
+
+-- no. 1: map (+3) xs
+list7 xs = [ x+3 | x <- xs]
+
+-- no. 2: filter (>7) xs
+list8 xs = [ x | x <- xs, x > 7]
+
+-- no.3: concat (map (\x -> map (\y -> (x,y)) ys) xs)
+-- belom mirip [FAILED]
+list9 xs ys = [ (x,y) | x <- xs, y <- ys]
+
+-- ???
+mystery9 (x:xs) (y:ys) = concat (map (\x -> map (\y -> (x,y)) ys) xs)
+
+-- no. 4: filter (>3) (map (\(x,y) -> x+y) xys)
+list10 xys = [ x+y | (x,y) <- xys, x + y > 3 ]
