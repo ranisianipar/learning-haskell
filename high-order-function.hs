@@ -109,3 +109,12 @@ list5 xys = map (\(i,j) -> i + 4) (filter plusGt5 xys)
 -- helper func.
 plusGt5 (i,j) = (i + j) < 5
 
+haha mxs = [ x+5 | Just x <- mxs ]
+
+-- no. 6: [ x+5 | Just x <- mxs ]
+-- test case: mxs = [Nothing, Just 1, Just 2]
+helo x = if (x == Nothing)
+    then False
+    else True
+
+list6 mxs = map (\ (Just a) -> a + 5) (filter helo mxs)
