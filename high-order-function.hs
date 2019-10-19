@@ -133,7 +133,12 @@ list8 xs = [ x | x <- xs, x > 7]
 list9 xs ys = [ (x,y) | x <- xs, y <- ys]
 
 -- ???
-mystery9 (x:xs) (y:ys) = concat (map (\x -> map (\y -> (x,y)) ys) xs)
+mystery9 (x:xs) (y:ys) = map (\x -> map (\y -> (x,y)) ys) xs
 
 -- no. 4: filter (>3) (map (\(x,y) -> x+y) xys)
 list10 xys = [ x+y | (x,y) <- xys, x + y > 3 ]
+
+
+phytagoras = [ (x,y,z) | x <- [1..], y <- [1..], z <- [1..], x**2 + y**2 == z **2 ]
+maxList xs = foldr maxMe 0 xs
+maxMe a b = if a > b then a else b
