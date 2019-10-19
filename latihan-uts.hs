@@ -16,3 +16,7 @@ evaluate (C x) = x
 -- test: evaluate (C 1 :+ C 2)
 -- result: 3
 evaluate (e1 :+ e2) = evaluate e1 + evaluate e2
+
+evaluate (e1 :- e2) = evaluate e1 - evaluate e2
+evaluate (e1 :* e2) = evaluate e1 * evaluate e2
+evaluate (e1 :/ e2) = evaluate e1 / evaluate e2
