@@ -19,3 +19,7 @@ merge [] b = b
 merge (a:as) (b:bs)
     | a < b = a : (merge as (b:bs))
     | otherwise = b : (merge (a:as) bs)
+
+
+-- phytagoras
+phytagoras = [(x,y,z) | x <- [3..], y <- [4..(x+1)], z <- [5..(x+2)], y**2 + x**2 == z**2]
