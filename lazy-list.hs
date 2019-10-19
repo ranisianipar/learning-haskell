@@ -11,3 +11,12 @@ quicksort (x:xs) =
 
 quicksort1 [] = []
 quicksort1 (x:xs) = filter (<x) xs ++ [x] ++ filter (>x) xs
+
+-- Permutation
+-- permutation [] = []
+-- permutation (x:[]) = [x]
+-- permutation xs = [x | x <- xs]
+
+-- prime number: Sieve of Erastothenes
+primes = sieve (2:[3,5..]) where
+    sieve (p:xs) = p : sieve [ x | x <- xs, x `mod` p > 0]
