@@ -22,4 +22,4 @@ merge (a:as) (b:bs)
 
 
 -- phytagoras
-phytagoras = [(x,y,z) | x <- [3..], y <- [4..(x+1)], z <- [5..(x+2)], y**2 + x**2 == z**2]
+phytagoras = [(x,y,z) | z <- [5..], x <- [3..z], y <- [4..z], y**2 + x**2 == z**2]
