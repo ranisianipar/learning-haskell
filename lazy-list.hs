@@ -20,3 +20,5 @@ quicksort1 (x:xs) = filter (<x) xs ++ [x] ++ filter (>x) xs
 -- prime number: Sieve of Erastothenes
 primes = sieve (2:[3,5..]) where
     sieve (p:xs) = p : sieve [ x | x <- xs, x `mod` p > 0]
+
+fib = 1 : 1 : zipWith (+) fib [1..]
